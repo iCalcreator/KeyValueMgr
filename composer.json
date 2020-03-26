@@ -23,6 +23,10 @@
             "email": "ical@kigkonsult.se"
         }
     ],
+    "autoload": {
+        "files": ["autoload.php"],
+        "psr-4": { "Kigkonsult\\keyValueMgr\\": ["src/"] }
+    },
     "require": {
         "php": ">=5.6"
     },
