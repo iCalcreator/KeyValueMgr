@@ -115,6 +115,11 @@ $cfgMgr->remove( $key )
 * Return nice edited string content output
 
 
+###### Sponsorship
+
+Donation using <a href="https://paypal.me/kigkonsult?locale.x=en_US" rel="nofollow">paypal.me/kigkonsult</a> are appreciated. 
+For invoice, <a href="mailto:ical@kigkonsult.se">please e-mail</a>.
+
 ###### INSTALL
 
 ``` php
