@@ -186,12 +186,12 @@ class KeyValueMgr
     }
 
     /**
-     * Return nice edited string content output
+     * Return nice edited string content output, leading and row end eol, no trailing eol
      *
      * @return string
      */
     public function toString() {
-        static $FMT = '%s : %s';
+        static $FMT = '%s%s : %s';
         $keyLen  = 0;
         $allKeys = $this->getKeys();
         foreach( $allKeys as $key ) {
@@ -202,7 +202,7 @@ class KeyValueMgr
         $output = '';
         foreach( $allKeys as $key ) {
             $output .=
-                sprintf( $FMT, str_pad( $key, $keyLen ), var_export( $this->data[$key], true )) . PHP_EOL;
+                sprintf( $FMT, PHP_EOL, str_pad( $key, $keyLen ), var_export( $this->data[$key], true ));
         }
         return $output;
     }
