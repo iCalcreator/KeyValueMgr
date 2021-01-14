@@ -13,7 +13,7 @@
         "pair"
     ],
     "minimum-stability": "stable",
-    "license": "gpl-3.0",
+    "license": "LGPL-3.0-or-later",
     "support": {
         "issues": "https://github.com/iCalcreator/keyvalueMgr/issues"
     },
