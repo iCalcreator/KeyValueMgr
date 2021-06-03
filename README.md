@@ -160,7 +160,7 @@ For support go to [github.com KeyValueMgr]
 
 ###### License
 
-This project is licensed under the LGPLv3 License
+This project is licensed under the LGPLv3 License.
 
 
 [Composer]:https://getcomposer.org/
