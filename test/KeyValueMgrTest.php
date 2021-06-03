@@ -2,24 +2,29 @@
 /**
  * KeyValueMgr manages collection of key/value paired data.
  *
- * Copyright 2020 Kjell-Inge Gustafsson, kigkonsult, All rights reserved
- * Link <https://kigkonsult.se>
- * Support <https://github.com/iCalcreator/keyvalueMgr>
- *
  * This file is part of KeyValueMgr.
  *
- * KeyValueMgr is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published
- * by the Free Software Foundation, either version 3 of the License,
- * or (at your option) any later version.
+ * @author    Kjell-Inge Gustafsson, kigkonsult <ical@kigkonsult.se>
+ * @copyright 2020-2021 Kjell-Inge Gustafsson, kigkonsult, All rights reserved
+ * @link      https://kigkonsult.se
+ * @version   1.0
+ * @license   Subject matter of licence is the software KeyValueMgr.
+ *            The above copyright, link, package and version notices,
+ *            this licence notice shall be included in all copies or substantial
+ *            portions of the KeyValueMgr.
  *
- * KeyValueMgr is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
+ *            KeyValueMgr is free software: you can redistribute it and/or modify
+ *            it under the terms of the GNU Lesser General Public License as
+ *            published by the Free Software Foundation, either version 3 of
+ *            the License, or (at your option) any later version.
  *
- * You should have received a copy of the GNU Lesser General Public License
- * along with KeyValueMgr. If not, see <https://www.gnu.org/licenses/>.
+ *            KeyValueMgr is distributed in the hope that it will be useful,
+ *            but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *            MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ *            GNU Lesser General Public License for more details.
+ *
+ *            You should have received a copy of the GNU Lesser General Public License
+ *            along with KeyValueMgr. If not, see <https://www.gnu.org/licenses/>.
  */
 namespace Kigkonsult\KeyValueMgr;
 
@@ -29,8 +34,11 @@ class KeyValueMgrTest extends TestCase
 {
     /**
      * Test keyValueMgrTest1 provider
+     *
+     * @return array
      */
-    public function dataProvider1() {
+    public function dataProvider1() : array
+    {
         $dataArr = [];
 
         $dataArr[] = [
@@ -52,11 +60,12 @@ class KeyValueMgrTest extends TestCase
      * @test
      * @dataProvider dataProvider1
      *
-     * @param string $key1
-     * @param string $value1
-     * @param $expected
+     * @param int $case
+     * @param string $key
+     * @param string $value
      */
-    public function keyValueMgrTest1( $case, $key, $value ) {
+    public function keyValueMgrTest1( int $case, string $key, string $value )
+    {
         $FMT = 'Error in case %d#%d, key : \'%s\', value : \'%s\'';
 
         $kvMgr = new KeyValueMgr();
@@ -121,7 +130,7 @@ class KeyValueMgrTest extends TestCase
             );
         }
         else {
-            $this->asserttrue(
+            $this->assertTrue(
                 $kvMgr->exists( $key, true ),
                 sprintf( $FMT, $case, 12, $key, $value )
             );
@@ -147,7 +156,5 @@ class KeyValueMgrTest extends TestCase
             $kvMgr->exists( $key ),
             sprintf( $FMT, $case, 13, $key, $value )
         );
-
     }
-
 }

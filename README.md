@@ -6,7 +6,7 @@
 
 ###### USAGE 
  
-~~~~~~~~
+``` php
 <?php
 namespace Kigkonsult\KeyValueMgr;
 
@@ -28,92 +28,96 @@ if( $cfgMgr->exists( $key ) {
    $value = $cfgMgr->get( $key );
 }
 $cfgMgr->remove( $key )
-
-~~~~~~~~
+```
 
 ###### Methods
 
 ```KeyValueMgr::__construct( [ configDataArray ] )```
-* configDataArray array 
+* ```configDataArray``` array 
 
 ```KeyValueMgr::factory( [ configDataArray ] )```
-* configDataArray  array
+* ```configDataArray```  array
 * static
-* return KeyValueMgr
+* Return static
 
 ```KeyValueMgr::singleton( [ configDataArray ] )```
-* configDataArray  array
+* ```configDataArray```  array
 * static
-* return singleton KeyValueMgr
-<br><br>
-
+* Return singleton KeyValueMgr
+---
 
 ```KeyValueMgr::exists( key )```
-* return bool true on found
+* ```key``` mixed
+* Return bool true on found
 
 ```KeyValueMgr::exists( key, true )```
-* return bool true on found and value NOT is ```null, '' or []```
-<br><br>
+* ```key``` mixed
+* ```true``` bool ```true```
+* Return bool true on found and value NOT is ```null, '' or []```
+---
 
 ```KeyValueMgr::get()```
-* return array *( key => value )
+* Return array *( key => value )
 
 ```KeyValueMgr::get( key )```
-* return value for key, false on not found
+* ```key``` mixed
+* Return value for key, false on not found
 
 ```KeyValueMgr::getKeys()```
-* return array *( key )
-<br><br>
-
+* Return array *( key )
+---
 
 ```KeyValueMgr::set( key, value )```
-* insert key/value-pair (overwrite if key exists)
-* key    string|int 
-* value  mixed 
-* return KeyValueMgr
+* Insert key/value-pair (overwrite if key exists)
+* ```key```    string|int 
+* ```value```  mixed 
+* Return static
 
 ```KeyValueMgr::set( key, value, true  )```
-* insert key/value-pair if key is NOT set
-* key    string|int 
-* value  mixed 
-* return KeyValueMgr
+* Insert key/value-pair if key is NOT set
+* ```key```    string|int 
+* ```value```  mixed 
+* ```true``` bool ```true```
+* Return static
 
 ```KeyValueMgr::set( configDataArray )```
-* insert array key/value-pairs (overwrite if key exists)
-* configDataArray  array *( key => value )
-* return KeyValueMgr
+* Insert array key/value-pairs (overwrite if key exists)
+* ```configDataArray```  array *( key => value )
+* Return static
 
 ```KeyValueMgr::set( configDataArray, null, true )```
-* insert array key/value-pairs where key NOT exists
-* configDataArray  array *( key => value )
-* return KeyValueMgr
-<br><br>
-
+* Insert array key/value-pairs where key NOT exists
+* ```configDataArray```  array *( key => value )
+* ```true``` bool ```true```
+* Return static
+---
 
 ```KeyValueMgr::remove( key )```
-* unset key/value pair
-* key    string|int
-* return KeyValueMgr
+* Unset key/value pair
+* ```key```    string|int 
+* Return static
 
 ```KeyValueMgr::remove( keyArr )```
-* unset key/value pairs
-* keyArr  array *( key )
-* return KeyValueMgr
+* Unset key/value pairs
+* ```keyArr```  array *( key )
+* Return static
 
 ```KeyValueMgr::remove( keyToKeep, true )```
-* unset all OTHER key/value-pairs 
-* keyToKeep  string|int 
-* return KeyValueMgr
+* Unset all OTHER key/value-pairs 
+* ```keyToKeep```  string|int 
+* ```true``` bool ```true```
+* Return static
 
 ```KeyValueMgr::remove( keyArrToKeep, true )```
-* unset all OTHER key/value-pairs 
-* keyArrToKeep  array *( key )
-* return KeyValueMgr
-<br><br>
+* Unset all OTHER key/value-pairs 
+* ```keyArrToKeep```  array *( key )
+* ```true``` bool ```true```
+* Return static
+---
 
 ```KeyValueMgr::toString()```
 * Return nice edited string content output
-
+---
 
 ###### Sponsorship
 
@@ -121,6 +125,8 @@ Donation using <a href="https://paypal.me/kigkonsult?locale.x=en_US" rel="nofoll
 For invoice, <a href="mailto:ical@kigkonsult.se">please e-mail</a>.
 
 ###### INSTALL
+
+KeyValueMgr 1.4 require PHP 7+
 
 ``` php
 composer require kigkonsult\keyvaluemgr:dev-master
