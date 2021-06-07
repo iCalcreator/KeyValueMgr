@@ -7,7 +7,6 @@
  * @author    Kjell-Inge Gustafsson, kigkonsult <ical@kigkonsult.se>
  * @copyright 2020-2021 Kjell-Inge Gustafsson, kigkonsult, All rights reserved
  * @link      https://kigkonsult.se
- * @version   1.4
  * @license   Subject matter of licence is the software KeyValueMgr.
  *            The above copyright, link, package and version notices,
  *            this licence notice shall be included in all copies or substantial
@@ -26,6 +25,7 @@
  *            You should have received a copy of the GNU Lesser General Public License
  *            along with KeyValueMgr. If not, see <https://www.gnu.org/licenses/>.
  */
+declare( strict_types = 1 );
 namespace Kigkonsult\KeyValueMgr;
 
 use function array_key_exists;
