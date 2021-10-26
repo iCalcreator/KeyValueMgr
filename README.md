@@ -142,6 +142,8 @@ Composer, in your `composer.json`:
 }
 ```
 
+Version 1.6 supports PHP 7.4, 1.4.1 7.0.
+
 Composer, acquire access
 ``` php
 use Kigkonsult\KeyValueMgr\KeyValueMgr;

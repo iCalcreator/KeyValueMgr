@@ -1,4 +1,6 @@
 
-1.4    PHP7 (PHPStan checks)
+1.4    PHP 7 (PHPStan checks)
 
 1.4.1  strict mode
+
+1.6    PHP 7.4

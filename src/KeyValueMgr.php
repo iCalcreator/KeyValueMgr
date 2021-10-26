@@ -51,32 +51,32 @@ class KeyValueMgr
     /**
      * The key/value paired collection
      *
-     * @var array
+     * @var mixed[]
      */
-    private $data = [];
+    private array $data = [];
 
     /**
      * Class factory method
      *
-     * @param array $data
-     * @return static
+     * @param mixed[] $data
+     * @return self
      */
     public static function factory( array $data = [] ) : self
     {
-        return new static( $data );
+        return new self( $data );
     }
 
     /**
      * Class singleton method
      *
-     * @param array $data
-     * @return static
+     * @param mixed[] $data
+     * @return self
      */
     public static function singleton( array $data = [] ) : self
     {
         static $instance = null;
         if( is_null( $instance )) {
-            $instance = new static( $data );
+            $instance = new self( $data );
         }
         return $instance;
     }
@@ -84,7 +84,7 @@ class KeyValueMgr
     /**
      * KeyValueMgr constructor
      *
-     * @param array $data
+     * @param mixed[] $data
      */
     public function __construct( array $data = [] )
     {
@@ -112,8 +112,8 @@ class KeyValueMgr
         }
         if( ! $exist ||
             is_null( $this->data[$key] ) ||
-            ( $EMPTYSTR == $this->data[$key] ) ||
-            ( $EMPTYARR == $this->data[$key] )) {
+            ( $EMPTYSTR === $this->data[$key] ) ||
+            ( $EMPTYARR === $this->data[$key] )) {
             return false;
         }
         return true;
@@ -122,10 +122,10 @@ class KeyValueMgr
     /**
      * Return array key-value pairs or key value, false on not found
      *
-     * @param string $key
+     * @param null|string $key
      * @return mixed
      */
-    public function get( string $key = null )
+    public function get( ? string $key = null )
     {
         if( is_null( $key )) {
             return $this->data;
@@ -136,7 +136,7 @@ class KeyValueMgr
     /**
      * Return array keys
      *
-     * @return array
+     * @return string[]
      */
     public function getKeys() : array
     {
@@ -148,12 +148,12 @@ class KeyValueMgr
      *
      * ifNotExists = true gives only insert of key(s) NOT set
      *
-     * @param array|string|int $key
-     * @param mixed            $value
-     * @param bool             $ifNotExists
-     * @return static
+     * @param array|string  $key
+     * @param null|mixed    $value
+     * @param null|bool     $ifNotExists
+     * @return self
      */
-    public function set( $key, $value = null, bool $ifNotExists = false ) : self
+    public function set( $key, $value = null, ? bool $ifNotExists = false ) : self
     {
         if( ! is_array( $key )) {
             $key = [ $key => $value ];
@@ -174,11 +174,11 @@ class KeyValueMgr
     /**
      * Unset data key(s) (allButKeys = false) OR unset key(s) not given (allButKeys = true)
      *
-     * @param string|array $key
-     * @param bool         $allButKeys
-     * @return static
+     * @param string|array  $key
+     * @param null|bool     $allButKeys
+     * @return self
      */
-    public function remove( $key, bool $allButKeys = false ) : self
+    public function remove( $key, ? bool $allButKeys = false ) : self
     {
         if( ! is_array( $key )) {
             $key    = [ $key ];
@@ -190,7 +190,8 @@ class KeyValueMgr
                 // dataKey is key to remove (found in 'remove'-keys)
                 continue;
             }
-            elseif( $allButKeys && ! $found ) {
+
+            if( $allButKeys && ! $found ) {
                 // dataKey is not found in 'save'-keys
                 continue;
             }

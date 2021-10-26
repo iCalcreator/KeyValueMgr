@@ -35,7 +35,7 @@ class KeyValueMgrTest extends TestCase
     /**
      * Test keyValueMgrTest1 provider
      *
-     * @return array
+     * @return mixed[]
      */
     public function dataProvider1() : array
     {
@@ -63,8 +63,9 @@ class KeyValueMgrTest extends TestCase
      * @param int $case
      * @param string $key
      * @param string $value
+     * @return void
      */
-    public function keyValueMgrTest1( int $case, string $key, string $value )
+    public function keyValueMgrTest1( int $case, string $key, string $value ) : void
     {
         $FMT = 'Error in case %d#%d, key : \'%s\', value : \'%s\'';
 
