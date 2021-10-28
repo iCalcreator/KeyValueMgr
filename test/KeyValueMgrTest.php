@@ -35,7 +35,7 @@ class KeyValueMgrTest extends TestCase
     /**
      * Test keyValueMgrTest1 provider
      *
-     * @return mixed[]
+     * @return array
      */
     public function dataProvider1() : array
     {
@@ -81,14 +81,11 @@ class KeyValueMgrTest extends TestCase
             sprintf( $FMT, $case, 2, $key, $value )
         );
 
-        $this->assertTrue(
-            is_array( $kvMgr->get()),
-            sprintf( $FMT, $case, 3, $key, $value )
+        $this->assertIsArray(
+            $kvMgr->get(), sprintf( $FMT, $case, 3, $key, $value )
         );
-        $this->assertEquals(
-            1,
-            count( $kvMgr->get()),
-            sprintf( $FMT, $case, 4, $key, $value )
+        $this->assertCount(
+            1, $kvMgr->get(), sprintf( $FMT, $case, 4, $key, $value )
         );
 
         $this->assertEquals(

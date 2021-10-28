@@ -126,8 +126,6 @@ For invoice, <a href="mailto:ical@kigkonsult.se">please e-mail</a>.
 
 ###### INSTALL
 
-KeyValueMgr 1.4 require PHP 7+
-
 ``` php
 composer require kigkonsult\keyvaluemgr:dev-master
 ```
@@ -142,7 +140,7 @@ Composer, in your `composer.json`:
 }
 ```
 
-Version 1.6 supports PHP 7.4, 1.4.1 7.0.
+KeyValueMgr 1.8 require PHP 8.0, 1.6 7.4, 1.4.1 7.0
 
 Composer, acquire access
 ``` php

@@ -51,14 +51,14 @@ class KeyValueMgr
     /**
      * The key/value paired collection
      *
-     * @var mixed[]
+     * @var array
      */
     private array $data = [];
 
     /**
      * Class factory method
      *
-     * @param mixed[] $data
+     * @param array $data
      * @return self
      */
     public static function factory( array $data = [] ) : self
@@ -69,7 +69,7 @@ class KeyValueMgr
     /**
      * Class singleton method
      *
-     * @param mixed[] $data
+     * @param array $data
      * @return self
      */
     public static function singleton( array $data = [] ) : self
@@ -84,7 +84,7 @@ class KeyValueMgr
     /**
      * KeyValueMgr constructor
      *
-     * @param mixed[] $data
+     * @param array $data
      */
     public function __construct( array $data = [] )
     {
@@ -111,9 +111,10 @@ class KeyValueMgr
             return $exist;
         }
         if( ! $exist ||
-            is_null( $this->data[$key] ) ||
             ( $EMPTYSTR === $this->data[$key] ) ||
-            ( $EMPTYARR === $this->data[$key] )) {
+            ( $EMPTYARR === $this->data[$key] ) ||
+            is_null( $this->data[$key] )
+        ) {
             return false;
         }
         return true;
@@ -125,7 +126,7 @@ class KeyValueMgr
      * @param null|string $key
      * @return mixed
      */
-    public function get( ? string $key = null )
+    public function get( ? string $key = null ) : mixed
     {
         if( is_null( $key )) {
             return $this->data;
@@ -148,12 +149,12 @@ class KeyValueMgr
      *
      * ifNotExists = true gives only insert of key(s) NOT set
      *
-     * @param array|string  $key
+     * @param array|string $key
      * @param null|mixed    $value
      * @param null|bool     $ifNotExists
      * @return self
      */
-    public function set( $key, $value = null, ? bool $ifNotExists = false ) : self
+    public function set( array | string $key, mixed $value = null, ? bool $ifNotExists = false ) : self
     {
         if( ! is_array( $key )) {
             $key = [ $key => $value ];
@@ -174,18 +175,18 @@ class KeyValueMgr
     /**
      * Unset data key(s) (allButKeys = false) OR unset key(s) not given (allButKeys = true)
      *
-     * @param string|array  $key
+     * @param array|string $key
      * @param null|bool     $allButKeys
      * @return self
      */
-    public function remove( $key, ? bool $allButKeys = false ) : self
+    public function remove( array | string $key, ? bool $allButKeys = false ) : self
     {
         if( ! is_array( $key )) {
             $key    = [ $key ];
         }
         $allowedCfg = [];
         foreach( $this->getKeys() as $dataKey ) {
-            $found  = in_array( $dataKey, $key );
+            $found  = in_array( $dataKey, $key, true );
             if( ! $allButKeys && $found ) {
                 // dataKey is key to remove (found in 'remove'-keys)
                 continue;

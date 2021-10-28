@@ -4,3 +4,5 @@
 1.4.1  strict mode
 
 1.6    PHP 7.4
+
+1.8    PHP 8.0
